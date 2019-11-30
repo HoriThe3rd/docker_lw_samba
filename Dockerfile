@@ -3,7 +3,7 @@ MAINTAINER HoriThe3rd
 ARG USERNAME="name"
 ARG PASSWD="weak_paswd"
 
-RUN apk update && apk --no-cache add samba tini
+RUN apk update && apk --no-cache add samba
 
 # Add a system user
 # Add a samba user who is the same as the system user
@@ -19,4 +19,5 @@ COPY ./start_samba_system.sh /usr/local/bin
 RUN chmod 775 /usr/local/bin/start_samba_system.sh
 
 EXPOSE 139 445
-CMD [ "/sbin/tini", "--", "/usr/local/bin/start_samba_system.sh"]
+ENTRYPOINT [ "/bin/ash" ]
+CMD [ "/usr/local/bin/start_samba_system.sh" ]
