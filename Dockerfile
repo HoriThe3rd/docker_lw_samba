@@ -1,5 +1,5 @@
 FROM alpine:3.9
-MAINTAINER HoriThe3rd
+LABEL maintainer="HoriThe3rd"
 
 ENV USERNAME="name" \
     PASSWD="weak_passwd"
